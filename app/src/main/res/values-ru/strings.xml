@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">YM Transfer</string>
+    <string name="recipient">Получатель</string>
+    <string name="amount_payment">Сумма оплаты</string>
+    <string name="amount_due">Сумма получения</string>
+    <string name="comment">Комментарий к переводу</string>
+    <string name="use_codepro">Использовать код протекции</string>
+    <string name="receive_period">Период получения</string>
+    <string name="payment">Оплата</string>
+    <string name="no_data">Нет данных</string>
+</resources>
