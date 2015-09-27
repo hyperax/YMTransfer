@@ -8,4 +8,6 @@
     <string name="receive_period">Период получения</string>
     <string name="payment">Оплата</string>
     <string name="no_data">Нет данных</string>
+    <string name="transfer_completed">Платеж выполнен</string>
+    <string name="transfer_incompleted">Платеж не выполнен</string>
 </resources>

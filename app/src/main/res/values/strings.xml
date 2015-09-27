@@ -8,4 +8,6 @@
     <string name="receive_period">Reveive period</string>
     <string name="payment">Payment</string>
     <string name="no_data">No data</string>
+    <string name="transfer_completed">Transfer has been completed</string>
+    <string name="transfer_incompleted">Transfer has been incompleted</string>
 </resources>
