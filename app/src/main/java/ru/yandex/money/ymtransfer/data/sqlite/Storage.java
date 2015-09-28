@@ -29,7 +29,7 @@ public class Storage {
     private Storage(Context context) {
         initCupboardSettings();
 
-        mOpenHelper = new YMSQLiteOpenHelper(context);
+        mOpenHelper = new YMSqliteOpenHelper(context);
         mDatabase = mOpenHelper.getWritableDatabase();
         mDataCompartment = cupboard().withDatabase(mDatabase);
     }
