@@ -208,7 +208,7 @@ public class TransferFragment extends BaseFragment {
             Transfer transfer = params[0];
 
             P2pTransferParams transferParams = new P2pTransferParams.Builder(transfer.getRecipient())
-                    .setAmount(transfer.getAmountPayment())
+                    .setAmountDue(transfer.getAmountDue())
                     .setCodepro(transfer.isCodeProtection())
                     .setComment(transfer.getComment())
                     .setExpirePeriod(transfer.getReceivePeriod())
