@@ -2,5 +2,9 @@
 <resources>
     <color name="primary">@color/orange</color>
     <color name="primary_dark">@color/orange_dark</color>
-    <color name="accent">@color/beige</color>
+    <color name="accent">@color/red_400</color>
+
+    <color name="message_alert">@color/red_400</color>
+    <color name="message_confirm">@color/green_500</color>
+    <color name="message_info">@color/primary</color>
 </resources>

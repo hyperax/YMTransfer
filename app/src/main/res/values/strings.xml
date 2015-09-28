@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">YMTransfer</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">YM Transfer</string>
+    <string name="recipient">Recipient</string>
+    <string name="amount_payment">The amount to pay</string>
+    <string name="amount_due">The amount to receive</string>
+    <string name="comment">The commentary to the transfer</string>
+    <string name="use_codepro">Use protection code</string>
+    <string name="receive_period">Reveive period</string>
+    <string name="payment">Payment</string>
+    <string name="no_data">No data</string>
+    <string name="transfer_completed">Transfer has been completed</string>
+    <string name="transfer_incompleted">Transfer has been incompleted</string>
+    <string name="auth_success">Авторизация прошла успешно</string>
+    <string name="authorization">Authorization</string>
+    <string name="error">Error: %1$s</string>
+    <string name="protection_code">Protection code</string>
+    <string name="no_comment">-No comment-</string>
 </resources>

@@ -1,11 +1,125 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivityFragment">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
-</RelativeLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/recipient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/recipient"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:singleLine="true"
+                tools:text="4100 0123 4567 890" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ru.softbalance.widgets.NumberEditText
+                android:id="@+id/amount_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/amount_payment"
+                android:imeOptions="actionNext"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                app:digits_after_dot="2"
+                app:digits_before_dot="10"
+                tools:text="125.00" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ru.softbalance.widgets.NumberEditText
+                android:id="@+id/amount_due"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/amount_due"
+                android:imeOptions="actionNext"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                app:digits_after_dot="2"
+                app:digits_before_dot="10"
+                tools:text="126.00" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/comment"
+                android:imeOptions="actionNext"
+                android:maxLines="3" />
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/use_code_protection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_codepro" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/protection_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/protection_code"
+                android:imeOptions="actionNext"
+                android:enabled="false"
+                android:maxLines="3" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ru.softbalance.widgets.NumberEditText
+                android:id="@+id/receive_period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/receive_period"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                app:digits_after_dot="0"
+                app:digits_before_dot="2"
+                tools:text="10" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/payment" />
+
+    </LinearLayout>
+</ScrollView>

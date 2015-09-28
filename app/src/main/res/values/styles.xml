@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
 
         <!-- colorPrimaryDark is used for the status bar -->
@@ -10,5 +10,7 @@
         <!-- colorAccent is used as the default value for colorControlActivated, which is used to tint widgets -->
         <item name="colorAccent">@color/accent</item>
     </style>
+
+    <style name="AppTheme.ToolBar" parent="ThemeOverlay.AppCompat.ActionBar"/>
 
 </resources>

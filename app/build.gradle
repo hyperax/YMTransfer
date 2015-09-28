@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'com.android.databinding'
+
 def AAVersion = '3.3.2'
 
 android {
@@ -13,11 +15,21 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'LICENSE.txt'
     }
 }
 
@@ -32,9 +44,12 @@ dependencies {
 
     compile 'com.yandex.money.api:yandex-money-sdk-android:3.0.5'
 
+    compile 'ru.softbalance.widgets:NumberEditText:1.1.2'
+
     compile 'com.android.support:support-annotations:23.0.1'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
 
     compile 'nl.qbusict:cupboard:2.1.1'
 
@@ -42,9 +57,7 @@ dependencies {
 
     compile 'com.octo.android.robospice:robospice:1.4.14'
 
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'joda-time:joda-time:2.7'
 
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
