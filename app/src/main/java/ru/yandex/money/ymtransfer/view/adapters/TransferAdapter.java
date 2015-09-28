@@ -1,6 +1,7 @@
 package ru.yandex.money.ymtransfer.view.adapters;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import ru.yandex.money.ymtransfer.R;
 import ru.yandex.money.ymtransfer.data.model.Transfer;
+import ru.yandex.money.ymtransfer.data.model.constants.PaymentStatus;
 
 public class TransferAdapter extends BaseAdapter {
 
@@ -19,11 +21,8 @@ public class TransferAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
 
-    private Context context;
-
     public TransferAdapter(Context context, List<Transfer> items) {
-        this.context = context.getApplicationContext();
-        inflater = LayoutInflater.from(context);
+        inflater = LayoutInflater.from(context.getApplicationContext());
         setItems(items);
     }
 
@@ -78,7 +77,24 @@ public class TransferAdapter extends BaseAdapter {
         }
 
         public void bind(Transfer item) {
-            title.setText(item.getComment());
+            if (TextUtils.isEmpty(item.getComment())) {
+                title.setText(R.string.no_comment);
+            } else {
+                title.setText(item.getComment());
+            }
+
+            switch (item.getStatus()) {
+                case PaymentStatus.COMPLETE:
+                    title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_ok,0,0,0);
+                    break;
+                case PaymentStatus.ERROR:
+                    title.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error,0,0,0);
+                    break;
+                default:
+                    title.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+                    break;
+            }
+
             date.setText(item.getDateCreation().toString("dd/MM/YY HH:mm"));
         }
     }

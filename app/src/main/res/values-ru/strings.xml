@@ -10,4 +10,9 @@
     <string name="no_data">Нет данных</string>
     <string name="transfer_completed">Платеж выполнен</string>
     <string name="transfer_incompleted">Платеж не выполнен</string>
+    <string name="auth_success">Авторизация прошла успешно</string>
+    <string name="authorization">Авторизация</string>
+    <string name="error">Ошибка: %1$s</string>
+    <string name="protection_code">Код протекции</string>
+    <string name="no_comment">-Без комментария-</string>
 </resources>

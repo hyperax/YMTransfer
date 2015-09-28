@@ -10,4 +10,9 @@
     <string name="no_data">No data</string>
     <string name="transfer_completed">Transfer has been completed</string>
     <string name="transfer_incompleted">Transfer has been incompleted</string>
+    <string name="auth_success">Авторизация прошла успешно</string>
+    <string name="authorization">Authorization</string>
+    <string name="error">Error: %1$s</string>
+    <string name="protection_code">Protection code</string>
+    <string name="no_comment">-No comment-</string>
 </resources>

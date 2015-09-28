@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 import nl.qbusict.cupboard.annotation.Column;
 import ru.yandex.money.ymtransfer.data.contract.Contract;
 import ru.yandex.money.ymtransfer.data.model.constants.PaymentStatus;
-import ru.yandex.money.ymtransfer.utils.MathUtils;
-import ru.yandex.money.ymtransfer.utils.NpeUtils;
+import ru.yandex.money.ymtransfer.utils_name.MathUtils;
+import ru.yandex.money.ymtransfer.utils_name.NpeUtils;
 
 public class Transfer implements Serializable {
 
@@ -42,6 +42,9 @@ public class Transfer implements Serializable {
 
     @Column(Contract.Transfer.DATE_CREATION)
     private long dateCreation;
+
+    @Column(Contract.Transfer.PROTECTION_CODE)
+    private String protectionCode;
 
     public Transfer() {
         setId(null);
@@ -138,5 +141,14 @@ public class Transfer implements Serializable {
     public Transfer setDateCreation(DateTime date) {
         this.dateCreation = NpeUtils.getNonNull(date, new DateTime(0L)).getMillis();
         return this;
+    }
+
+    public void setProtectionCode(String protectionCode) {
+        this.protectionCode = protectionCode;
+    }
+
+    @NonNull
+    public String getProtectionCode() {
+        return NpeUtils.getNonNull(protectionCode);
     }
 }

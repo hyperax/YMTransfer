@@ -1,5 +1,6 @@
 package ru.yandex.money.ymtransfer.view.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,20 +8,28 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import ru.yandex.money.ymtransfer.R;
 import ru.yandex.money.ymtransfer.data.model.Transfer;
+import ru.yandex.money.ymtransfer.properties.AppPrefs_;
 import ru.yandex.money.ymtransfer.view.fragments.TransferFragment_;
 import ru.yandex.money.ymtransfer.view.fragments.TransferListFragment;
 import ru.yandex.money.ymtransfer.view.fragments.TransferListFragment_;
 
 @EActivity(R.layout.activity_single_fragment)
 public class MainActivity extends AppCompatActivity implements TransferListFragment.Callback, FragmentManager.OnBackStackChangedListener {
+
+    private static final int REQUEST_AUTH = 1;
+
+    @Pref
+    AppPrefs_ appPrefs;
 
     @ViewById(R.id.toolbar)
     Toolbar toolbar;
@@ -94,6 +103,23 @@ public class MainActivity extends AppCompatActivity implements TransferListFragm
         } else {
             toolbar.setNavigationIcon(R.mipmap.ic_launcher);
             toolbar.setNavigationOnClickListener(null);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (TextUtils.isEmpty(appPrefs.token().get())) {
+            AuthActivity_.intent(this).startForResult(REQUEST_AUTH);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_AUTH) {
+            if (resultCode == RESULT_OK) {
+                appPrefs.token().put(data.getStringExtra(AuthActivity.EXTRA_TOKEN));
+            }
         }
     }
 }

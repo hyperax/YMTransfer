@@ -14,6 +14,7 @@ public interface Contract {
         String STATUS = "status";
         String COMMENT = "comment";
         String DATE_CREATION = "date_creation";
+        String PROTECTION_CODE = "protection_code";
     }
 
 }

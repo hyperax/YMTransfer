@@ -86,6 +86,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/protection_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/protection_code"
+                android:imeOptions="actionNext"
+                android:enabled="false"
+                android:maxLines="3" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <ru.softbalance.widgets.NumberEditText
                 android:id="@+id/receive_period"
                 android:layout_width="match_parent"

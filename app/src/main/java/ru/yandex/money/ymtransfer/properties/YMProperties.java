@@ -15,7 +15,7 @@ public class YMProperties {
     }
 
     public static BigDecimal substractFee(BigDecimal amount) {
-        return amount.divide(FEE_VALUE.add(BigDecimal.ONE), RoundingMode.HALF_UP)
-                .setScale(2, RoundingMode.HALF_UP).stripTrailingZeros();
+        return amount.divide(FEE_VALUE.add(BigDecimal.ONE), 4, RoundingMode.HALF_DOWN)
+                .setScale(2, RoundingMode.HALF_DOWN).stripTrailingZeros();
     }
 }
