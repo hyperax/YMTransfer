@@ -17,6 +17,7 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import ru.yandex.money.ymtransfer.R;
+import ru.yandex.money.ymtransfer.Utils.TripleDESCrypto;
 import ru.yandex.money.ymtransfer.data.model.Transfer;
 import ru.yandex.money.ymtransfer.properties.AppPrefs_;
 import ru.yandex.money.ymtransfer.view.fragments.TransferFragment_;
@@ -118,7 +119,12 @@ public class MainActivity extends AppCompatActivity implements TransferListFragm
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_AUTH) {
             if (resultCode == RESULT_OK) {
-                appPrefs.token().put(data.getStringExtra(AuthActivity.EXTRA_TOKEN));
+                String token = data.getStringExtra(AuthActivity.EXTRA_TOKEN);
+                try {
+                    appPrefs.token().put(TripleDESCrypto.encrypt(token, TripleDESCrypto.KEY));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

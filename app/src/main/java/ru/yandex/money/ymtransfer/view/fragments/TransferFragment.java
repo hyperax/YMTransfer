@@ -34,6 +34,7 @@ import java.io.IOException;
 import de.greenrobot.event.EventBus;
 import ru.softbalance.widgets.NumberEditText;
 import ru.yandex.money.ymtransfer.R;
+import ru.yandex.money.ymtransfer.Utils.TripleDESCrypto;
 import ru.yandex.money.ymtransfer.data.model.Transfer;
 import ru.yandex.money.ymtransfer.data.model.constants.PaymentStatus;
 import ru.yandex.money.ymtransfer.data.sqlite.Storage;
@@ -217,7 +218,13 @@ public class TransferFragment extends BaseFragment {
             RequestPayment.Request request = RequestPayment.Request.newInstance(transferParams);
             RequestPayment requestPayment;
             ProcessPayment processPayment = null;
-            session.setAccessToken(prefs.token().get());
+            String decryptedToken = "";
+            try {
+                decryptedToken = TripleDESCrypto.decrypt(prefs.token().get(), TripleDESCrypto.KEY);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            session.setAccessToken(decryptedToken);
 
             if (session.isAuthorized()) {
                 try {
