@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 import nl.qbusict.cupboard.annotation.Column;
 import ru.yandex.money.ymtransfer.data.contract.Contract;
 import ru.yandex.money.ymtransfer.data.model.constants.PaymentStatus;
-import ru.yandex.money.ymtransfer.utils_name.MathUtils;
-import ru.yandex.money.ymtransfer.utils_name.NpeUtils;
+import ru.yandex.money.ymtransfer.utils.MathUtils;
+import ru.yandex.money.ymtransfer.utils.NpeUtils;
 
 public class Transfer implements Serializable {
 
